@@ -49,6 +49,16 @@ def delete_note():
             return
     print("Заметка с таким ID не найдена.")
 
+def show_note():
+    note_id = int(input("Введите ID заметки для просмотра: "))
+    for note in notes:
+        if note["id"] == note_id:
+            print(f"Заголовок: {note['title']}")
+            print(f"Текст: {note['body']}")
+            print(f"Дата создания: {note['date']}")
+            return
+    print("Заметка с таким ID не найдена.")
+
   
 notes = load_notes()
 
