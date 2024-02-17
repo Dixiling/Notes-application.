@@ -24,7 +24,22 @@ def add_note():
     notes.append(note)
     save_notes(notes)
     print("Заметка добавлена.")
-    
+
+def edit_note():
+    note_id = int(input("Введите ID заметки для редактирования: "))
+    for note in notes:
+        if note["id"] == note_id:
+            title = input("Введите новый заголовок заметки: ")
+            body = input("Введите новый текст заметки: ")
+            note["title"] = title
+            note["body"] = body
+            note["date"] = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+            save_notes(notes)
+            print("Заметка отредактирована.")
+            return
+    print("Заметка с таким ID не найдена.")
+
+  
 notes = load_notes()
 
 while True:
