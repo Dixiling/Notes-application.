@@ -76,7 +76,8 @@ def show_notes():
   
 notes = load_notes()
 
-while True:
+user_input = None
+while user_input != '7':
     print("\n1. Добавление заметки")
     print("2. Редактирование заметки")
     print("3. Удаление заметки")
@@ -86,19 +87,20 @@ while True:
     print("7. Выход")
     choice = input("Выберите действие: ")
 
-    if choice == "1":
-        add_note()
-    elif choice == "2":
-        edit_note()
-    elif choice == "3":
-        delete_note()
-    elif choice == "4":
-        show_note()
-    elif choice == "5":
-        show_date_notes()
-    elif choice == "6":
-        show_notes()
-    elif choice == "7":
-        break
-    else:
-        print("Неверный ввод.")
+    match choice:
+        case  "1":
+            add_note()
+        case  "2":
+            edit_note()
+        case "3":
+            delete_note()
+        case  "4":
+            show_note()
+        case  "5":
+            show_date_notes()
+        case  "6":
+            show_notes()
+        case  "7":
+            break
+        case _:
+            print("Неверный ввод.")
